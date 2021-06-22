@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ person.first_name }} - CV</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS-->
+	<script defer src="{{ url_for('static', filename='vendor/fontawesome/all.min.js') }}"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">   
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="{{ url_for('static', filename='css/orbit-4.css') }}">
+    
+</head> 
+
+<body>
+    <div class="wrapper">
+        <div class="main-wrapper">
+            
+            <section class="section summary-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>Career Profile</h2>
+                <div class="summary">
+                    <p> {{ person.description }}</p>
+                </div><!--//summary-->
+            </section><!--//section-->
+            
+            <section class="section experiences-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Experiences</h2>
+                
+                {% for experience in person.experiences %}
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">{{ experience.title }}</h3>
+                            <div class="time">{{ experience.timeframe }}</div>
+                        </div><!--//upper-row-->
+                        <div class="company">{{ experience.company }}</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>{{ experience.description }}</p>  
+                    </div><!--//details-->
+                </div><!--//item-->
+                {% endfor %}
+                
+            </section><!--//section-->
+            
+            <section class="section education-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-university"></i></span>Education</h2>
+
+                {% for diploma in person.education %}
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">{{ diploma.degree }}</h3>
+                            <div class="time">{{ diploma.timeframe }}</div>
+                        </div><!--//upper-row-->
+                        <div class="company">{{ diploma.university }}</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>{{ diploma.description }}</p>  
+                    </div><!--//details-->
+                </div><!--//item-->
+                {% endfor %}
+            </section><!--//section-->
+            
+            <section class="skills-section section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-rocket"></i></span>Skills &amp; Proficiency</h2>
+                <div class="skillset">  
+                    {% for lang, details in person.programming_languages.items() %}
+                    <div class="item">
+                        <h3 class="level-title"> {{ lang }}</h3>
+                        <div class="progress level-bar">
+						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width:{{ details[1] }}%" aria-valuenow=" {{ details[1] }}" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>                               
+                    </div><!--//item-->
+                    {% endfor %}
+                </div>  
+            </section><!--//skills-section-->
+            
+        
+        
+        </div><!--//main-body-->
+
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+                <img class="profile" src="{{ url_for('static', filename='img/img_nono.jpg') }}" alt="" />
+                <h1 class="name">{{ person.first_name }} {{ person.last_name }}</h1>
+                <h3 class="tagline">{{ person.job }}</h3>
+            </div><!--//profile-container-->
+            
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <li class="email"><i class="fas fa-envelope"></i><a href="mailto: {{ person.email }}">{{ person.email }}</a></li>
+                    <li class="phone"><i class="fas fa-phone"></i><a href="tel:{{ person.tel }}">{{ person.tel }}</a></li>
+                    <li class="linkedin"><i class="fab {{ person.social_media[2].icon }}"></i><a href="{{ person.social_media[2].link }}" target="_blank">{{ person.social_media[2].link }}</a></li>
+                    <li class="github"><i class="fab {{ person.social_media[1].icon }}"></i><a href="{{ person.social_media[1].link }}" target="_blank">{{ person.social_media[1].link }}</a></li>
+                    <li class="twitter"><i class="fab {{ person.social_media[3].icon }}"></i><a href="{{ person.social_media[3].link }}" target="_blank">@{{ person.first_name }}</a></li>
+                </ul>
+            </div><!--//contact-container-->
+            <div class="education-container container-block" style='display: none;'>
+                <h2 class="container-block-title">Education</h2>
+                {% for diploma in person.education %}
+                <div class="item">
+                    <h4 class="degree">{{ diploma.degree }}</h4>
+                    <h5 class="meta">{{ diploma.university }}</h5>
+	                    <div class="time">{{ diploma.timeframe }}</div>
+                </div><!--//item-->
+                {% endfor %}
+            </div><!--//education-container-->
+            
+            <div class="languages-container container-block">
+                <h2 class="container-block-title">Languages</h2>
+                <ul class="list-unstyled interests-list">
+                    {% for lang, level in person.languages.items() %}
+                        <li>{{ lang }} <span class="lang-desc">({{ level }})</span></li>
+                    {% endfor %}
+                </ul>
+            </div><!--//interests-->
+            
+            <div class="interests-container container-block">
+                <h2 class="container-block-title">Interests</h2>
+                <ul class="list-unstyled interests-list">
+                    {% for interest in person.interests %}
+                        <li> {{ interest }}</li>
+                    {% endfor %}
+                </ul>
+            </div><!--//interests-->
+            
+        </div><!--//sidebar-wrapper-->
+        
+    </div>
+</body>
+</html> 
+
