@@ -11,50 +11,33 @@ import csv, re, operator
 app = Flask(__name__)
 
 person = {
-    'first_name': 'Nohossat',
-    'last_name' : 'TRAORE',
-    'address' : '9 rue Léon Giraud · PARIS · FRANCE',
-    'job': 'Web developer',
-    'tel': '0678282923',
-    'email': 'nohossat.tra@yahoo.com',
-    'description' : 'Suite à une expérience internationale en développement web et dans le domaine des arts, l’impact de l’intelligence artificielle dans nos vies me surprend de jour en jour. \n Aujourd’hui, je souhaite changer de cap et comprendre les secrets que recèlent nos données. J’aimerais mettre à profit ces découvertes au service des entreprises/associations à dimension sociale.',
-    'social_media' : [
-        {
-            'link': 'https://www.facebook.com/nono',
-            'icon' : 'fa-facebook-f'
-        },
-        {
-            'link': 'https://github.com/nono',
-            'icon' : 'fa-github'
-        },
-        {
-            'link': 'linkedin.com/in/nono',
-            'icon' : 'fa-linkedin-in'
-        },
-        {
-            'link': 'https://twitter.com/nono',
-            'icon' : 'fa-twitter'
-        }
-    ],
+    
+    'first_name' : '熊',
+    'last_name' : '志文',
+    'address' : 'HUANGSHI-HBNU',
+    'job': '按摩师',
+    'tel': '123456789.',
+    'email': 'XYYDFJ@163.com',
+    'github':'xgnzm',
+    'blogs':'cnblogs',
+    'csdn':'CSDN',
+    'description' : '我在学习专业知识提高自我科学文化素养的同时，也努力提高自我的思想道德素质，是自我成为德、智、体诸方面全面发展，适应21世纪发展的要求的复合型人才，做一个有思想，有文化，有纪律的社会主义建设者和接班人。',
     'img': 'img/img_nono.jpg',
     'experiences' : [
         {
-            'title' : 'Web Developer',
-            'company': 'AZULIK',
-            'description' : 'Project manager and lead developer for several AZULIK websites.',
-            'timeframe' : 'July 2018 - November 2019'
+            'title' : 'java飞机购票系统',
+            'description' : '指导老师：杨**',
+            'timeframe' : 'Nov 2018 - 2019'
         },
         {
-            'title' : 'Freelance Web Developer',
-            'company': 'Independant',
-            'description' : 'Create Wordpress websites for small and medium companies. ',
-            'timeframe' : 'February 2017 - Present'
+            'title' : 'python网页爬虫',
+            'description' : '指导老师：李** ',
+            'timeframe' : 'Oct 2019-2020'
         },
         {
-            'title' : 'Sharepoint Intern',
-            'company': 'ALTEN',
-            'description' : 'Help to manage a 600 Sharepoint sites platform (audit, migration to Sharepoint newer versions)',
-            'timeframe' : 'October 2015 - October 2016'
+            'title' : 'pygame飞机大战',
+            'description' : '指导老师：李**',
+            'timeframe' : 'Dec 2020 - 2021'
         }
     ],
     'education' : [
@@ -92,7 +75,8 @@ person = {
         'NodeJS' : ['fa-node-js', '50']
     },
     'languages' : {'French' : 'Native', 'English' : 'Professional', 'Spanish' : 'Professional', 'Italian' : 'Limited Working Proficiency'},
-    'interests' : ['Dance', 'Travel', 'Languages']
+    'habbies' : '唱歌、跳舞、打游戏',
+    'website':"xyjssb.com"
 }
 
 @app.route('/')
