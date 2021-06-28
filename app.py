@@ -100,19 +100,19 @@ def cb():
 def index():
 	return render_template('chartsajax.html',  graphJSON1=gm1(),graphJSON2=gm2(),graphJSON3=gm3(),graphJSON4=gm4(),graphJSON5=gm5())
 def gm1():
-	df = pd.read_csv('E:\\xzw\\xzw1\\1.csv',encoding="gbk")
+	df = pd.read_csv('./1.csv',encoding="gbk")
 	fig1 = px.density_contour(df,x="日期",y="均价(元)",)
 	graphJSON1 = json.dumps(fig1,cls=plotly.utils.PlotlyJSONEncoder)
 	return graphJSON1
 
 def gm2():
-	df = pd.read_csv('E:\\xzw\\xzw1\\1.csv',encoding="gbk")
+	df = pd.read_csv('./1.csv',encoding="gbk")
 	fig2 = px.scatter(df,x="日期",y="总市值(元)",color="前收盘价(元)")
 	graphJSON2 = json.dumps(fig2,cls=plotly.utils.PlotlyJSONEncoder)
 	return graphJSON2
 
 def gm3():
-	df = pd.read_csv('E:\\xzw\\xzw1\\1.csv',encoding="gbk")
+	df = pd.read_csv('./1.csv',encoding="gbk")
 	fig3=px.parallel_categories(df, color="均价(元)", color_continuous_scale=px.
             colors.sequential.Inferno)
 	graphJSON3 = json.dumps(fig3,cls=plotly.utils.PlotlyJSONEncoder)
@@ -120,13 +120,13 @@ def gm3():
 
 
 def gm4():
-	df = pd.read_csv('E:\\xzw\\xzw1\\1.csv',encoding="gbk")
+	df = pd.read_csv('./1.csv',encoding="gbk")
 	fig4=px.area(df, x="日期", y="市现率", color="市盈率")
 	graphJSON4 = json.dumps(fig4,cls=plotly.utils.PlotlyJSONEncoder)
 	return graphJSON4
 
 def gm5():
-	df = pd.read_csv('E:\\xzw\\xzw1\\1.csv',encoding="gbk")
+	df = pd.read_csv('./1.csv',encoding="gbk")
 	fig5=px.histogram(df, x="日期",y="均价(元)",color="市净率", hover_data=df.columns)
 	graphJSON5 = json.dumps(fig5,cls=plotly.utils.PlotlyJSONEncoder)
 	return graphJSON5
