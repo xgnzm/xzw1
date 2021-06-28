@@ -1,34 +1,22 @@
-// Some code thanks to @chrisgannon
-
-var select = function(s) {
-  return document.querySelector(s);
-}
-
-function randomBetween(min,max)
-{
-    var number = Math.floor(Math.random()*(max-min+1)+min);
-  
-    if ( number !== 0 ){
-      return number;
-    }else {
-      return 0.5;
+$(window).load(function(){
+  // Page Load Anim
+  $('.contOut').animate({
+    'opacity':'1'
+  },1200);
+  // Jobs Accordion
+  $('.fa-plus').closest('.job').find('p').slideUp();
+  $('.openBtn').on('click', function() {
+    if ($(this).hasClass('open')) {
+      $(this).removeClass('open').removeClass('fa-minus').addClass('fa-plus');
+      $(this).closest('.job').find('p').animate({
+        'opacity':'0'
+      },200).slideUp();
+    } else {
+      $(this).addClass('open').removeClass('fa-plus').addClass('fa-minus');
+      $(this).closest('.job').find('p').slideDown().animate({
+        'opacity':'1'
+      },400);
     }
-}
-
-var tl = new TimelineMax();
-
-for(var i = 0; i < 20; i++){
-
-  var t = TweenMax.to(select('.bubble' + i), randomBetween(1, 1.5), {
-    x: randomBetween(12, 15) * (randomBetween(-1, 1)),
-    y: randomBetween(12, 15) * (randomBetween(-1, 1)), 
-    repeat:-1,
-    repeatDelay:randomBetween(0.2, 0.5),
-    yoyo:true,
-    ease:Elastic.easeOut.config(1, 0.5)
-  })
-
-  tl.add(t, (i+1)/0.6)
-}
-
-tl.seek(50);
+  });
+  
+});

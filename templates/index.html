@@ -2,158 +2,242 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Responsive Resume Template</title>
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <title>CodePen - Responsive Resume</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display|PT+Sans'>
+  <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/85807/font-awesome.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:400, 700'>
   <link rel="stylesheet" href="../static/style.css">
-  <!-- <script type="text/javascript" src="../static/script.js"></script> -->
+
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<div class="resume-wrapper">
-	<section class="profile section-padding">
-		<div class="container">
-			<div class="picture-resume-wrapper">
-        <div class="picture-resume">
-        <span><img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="" /></span>
-        <svg version="1.1" viewBox="0 0 350 350">
-  
-  <defs>
-    <filter id="goo">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -9" result="cm" />
-    </filter>
-  </defs>
-  
-  
-<g filter="url(#goo)" >  
-  
-  <circle id="main_circle" class="st0" cx="171.5" cy="175.6" r="130"/>
-  
-  <circle id="circle" class="bubble0 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble1 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble2 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble3 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble4 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble5 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble6 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble7 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble8 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble9 st1" cx="171.5" cy="175.6" r="122.7"/>
-  <circle id="circle" class="bubble10 st1" cx="171.5" cy="175.6" r="122.7"/>
+<div class="contOut clearfix">
+  <div class="contIn">
+    <div class="section top clearfix">
+      <div class="logoCont"><img class="logo" src="../static/1.jpg"/></div>
+      <h1>{{person.first_name}}{{person.last_name}}</h1>
+     
 
-</g>  
-</svg>
+      <div class="moreInfo">
+        <p>{{person.address}}<br/>{{person.email}}<br/>{{person.tel}}<br/></p>
+        <p><a href="{{url_for('index')}}" target="_blank">近期作品</a></p>
       </div>
-         <div class="clearfix"></div>
- </div>
-      <div class="name-wrapper">
-        <h1>{{person.first_name}}{{person.last_name}}</h1><!-- YOUR NAME AND LAST NAME  -->
+      <p class="tagline">Front-end Developer<br/>Project Manager<br/><span>Web &amp; Software</span></p>
+    </div>
+    <div class="divider"></div>
+  </div>
+</div>
+<div class="contOut clearfix">
+  <div class="contIn">
+    <div class="section middle clearfix">
+      <div class="job">
+        <h2>{{person.experiences[0].title}}<i class="fa fa-minus openBtn open"></i><span>{{person.experiences[0].time}}</span></h2>
+        <p><strong>Position: </strong>Project Manager<br/><strong>Description: </strong>{{person.experiences[0].description}}<br/><span class="brag">I manage a team consisting of 12 employees and 6-10 highly skilled contractors. We develop website's for our own internal CMS including Shopify and WordPress.</span></p>
       </div>
-      <div class="clearfix"></div>
-      <div class="contact-info clearfix">
-      	<ul class="list-titles">
-      		<li>Call</li>
-      		<li>Mail</li>
-      		<li>Web</li>
-      		<li>Home</li>
-      	</ul>
-        <ul class="list-content ">
-        	<li>{{person.tel}}</li> <!-- YOUR PHONE NUMBER  -->
-        	<li>{{person.email}}</li> <!-- YOUR EMAIL -->
-        	<li><a href="#">{{person.website}}</a></li> <!-- YOUR WEBSITE  -->
-        	<li>{{person.address}}</li> <!-- YOUR STATE AND COUNTRY  -->
+    </div>
+    <div class="divider"></div>
+  </div>
+</div>
+<div class="contOut clearfix">
+  <div class="contIn">
+    <div class="section middle clearfix">
+      <div class="job">
+        <h2>{{person.experiences[1].title}}<i class="fa fa-plus openBtn"></i><span>{{person.experiences[1].time}}</span></h2>
+        <p><strong>Position: </strong>Project Manager & Front-end Developer<br/><strong>Description: </strong>{{person.experiences[1].description}}
+          <br/><span class="brag">I am one of the top developers in the RapidWeaver market where I have over 70 top selling addons and my latest work is featured as a built-in theme in their latest version (6).</span></p>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </div>
+</div>
+<div class="contOut clearfix">
+  <div class="contIn">
+    <div class="section middle clearfix">
+      <div class="job">
+        <h2>{{person.experiences[2].title}}<i class="fa fa-plus openBtn"></i><span>{{person.experiences[2].time}}</span></h2>
+        <p><strong>Position: </strong>System Administrator<br/><strong>Description: </strong>{{person.experiences[2].description}}<br/><span class="brag">During college I was a full-time volunteer here where our aim was to help "Prepare urban fatherless young men for life" and I helped in building the company from the ground up.</span></p>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </div>
+</div>
+<div class="contOut clearfix">
+  <div class="contIn">
+    <div class="section middle clearfix">
+      <div class="job">
+        <h2>{{person.experiences[3].title}}<i class="fa fa-plus openBtn"></i><span>{{person.experiences[3].time}}</span></h2>
+        <p><strong>Position: </strong>Administration<br/><strong>Description: </strong>{{person.experiences[3].description}}<br/><span class="brag">Developed a tracking database for logistical transportation convoy movements - used for creating accurate predictive re-deployment supply dates.</span></p>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </div>
+</div>
+<div class="contOut clearfix half">
+  <div class="contIn">
+    <div class="section middle clearfix">
+      <div class="skills code odd">
+        <h3>Code & Software<i class="fa fa-code"></i></h3>
+        <ul>
+          <li class="prim">JavaScript</li>
+          <li>jQuery</li>
+          <li>jQuery UI</li>
+          <li>Angular</li>
+          <li>AJAX</li>
+          <h2> <p><a href="{{url_for('index')}}" target="_blank">近期作品</a></p></h2>
+          <li class="prim">CSS</li>
+          <li>CSS3</li>
+          <li>Sass</li>
+          <li>Scss</li>
+          <li>Compass</li>
+          <li class="light">Bourbon</li>
+          <li class="prim">HTML</li>
+          <li>HMTL5</li>
+          <li>xhtml</li>
+          <li>Jade</li>
+          <li class="light">Haml</li>
+          <li class="light">SVG</li>
+          <li class="prim">Database</li>
+          <li class="light">Ruby</li>
+          <li>Ruby on Rails</li>
+          <li>ASP</li>
+          <li>PHP</li>
+          <li class="light">PostgreSQL</li>
+          <li class="light">MySQL</li>
+          <li class="prim">Platforms</li>
+          <li>RapidWeaver</li>
+          <li>Wix</li>
+          <li>WordPress</li>
+          <li>Ghost</li>
+          <li class="light">Tumblr</li>
+          <li class="light">Joomla</li>
+          <li class="prim">API</li>
+          <li>Google Maps</li>
+          <li>Google Places</li>
+          <li>Facebook</li>
+          <li>Pinterest</li>
+          <li>Instagram</li>
+          <li class="light">PayPal</li>
+          <li class="prim">Frameworks</li>
+          <li>Bootstrap</li>
+          <li>Foundation</li>
+          <li>Pure</li>
+          <li class="prim">Editors</li>
+          <li>Aptana</li>
+          <li>Brackets</li>
+          <li>Sublime Text</li>
+          <li>Codepen</li>
+          <li>jsFiddle</li>
+          <li>Plist Editor Pro</li>
+          <li class="prim">Environments</li>
+          <li>Git</li>
+          <li>BitBucket</li>
+          <li>GitHub</li>
+          <li>WAMP/MAMP</li>
+          <li class="prim">Graphics</li>
+          <li>Photoshop</li>
+          <li>Illustrator</li>
+          <li class="light">After Effects</li>
         </ul>
       </div>
-      <div class="contact-presentation"> <!-- YOUR PRESENTATION RESUME  -->
-      	<p><span class="bold">个人介绍<br></span> {{person.description}}</p>
+      <div class="skills software">
+        <h3>Practices & Tools<i class="fa fa-laptop"></i></h3>
+        <ul>
+          <li class="prim">Markup</li>
+          <li>Semantic/intuitive</li>
+          <li>Unintrusive</li>
+          <li>Uniform Indention</li>
+          <li>Sparingly Complex</li>
+          <li>Browser Compliance</li>
+          <li>Validated</li>
+          <li>SEO Compliant</li>
+          <li class="prim">Design</li>
+          <li>Responsive</li>
+          <li>Single Page Apps</li>
+          <li>MVC Frameworks</li>
+          <li>UI & UX</li>
+          <li>Branding</li>
+          <li>A/B Testing</li>
+          <li>Pixel Perfect</li>
+          <li>Cross-browser</li>
+          <li>Touch Friendly</li>
+          <li>Retina Ready</li>
+          <li>Fast</li>
+          <li class="prim">Dev Approach</li>
+          <li>Plan</li>
+          <li>Modular Builds</li>
+          <li>Version Control</li>
+          <li>Test</li>
+          <li>Debug</li>
+          <li class="prim">Troubleshooting</li>
+          <li>StackOverflow</li>
+          <li>Chrome Dev Tools</li>
+          <li class="prim">Project Management</li>
+          <li>Asana</li>
+          <li>Jira</li>
+          <li>Hipchat</li>
+          <li>Basecamp</li>
+          <li>Slack</li>
+          <li class="prim">Site Optimization</li>
+          <li>Google Analytics</li>
+          <li>Webmaster/Console Tools</li>
+          <li>Website Insight</li>
+          <li>PageSpeed</li>
+        </ul>
       </div>
-      <div class="contact-social clearfix">
-      	<ul class="list-titles">
-      		<li>Github</li>
-      		<li>CNBLOGS</li>
-      		<li>CSDN</li>
-      	</ul>
-        <ul class="list-content"> <!-- REMEMBER TO PUT THE URL ON THE HREF TAG  -->
-      		<li><a href="https://github.com/xgnzm/xzw1">{{person.github}}</a></li> <!-- YOUR TWITTER USER  -->
-      		<li><a href="https://www.cnblogs.com/931276208xzw/">{{person.blogs}}</a></li> <!-- YOUR DRIBBBLE USER  -->
-      		<li><a href="https://blog.csdn.net/qq_54457921?spm=1001.2014.3001.5343">{{person.csdn}}</a></li> <!-- YOUR BEHANCE USER  -->
-      	</ul>
-      </div>
-		</div>
-	</section>
-  
-  <section class="experience section-padding">
-  	<div class="container">
-  		<h3 class="experience-title">Experience</h3>
-      
-      <div class="experience-wrapper">
-      	<div class="company-wrapper clearfix">
-      		<div class="experience-title">项目名</div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
-          <div class="time">{{person.experiences[0].timeframe}}</div> <!-- THE TIME YOU WORK WITH THE COMPANY  -->
-      	</div>
-        
-        <div class="job-wrapper clearfix">
-        	<div class="experience-title">{{person.experiences[0].title}} </div> <!-- JOB TITLE  -->
-          <div class="company-description">
-          	<p>{{person.experiences[0].description}}</p>  <!-- JOB DESCRIPTION  -->
-          </div>
-        </div>
-        
-        <div class="company-wrapper clearfix">
-      		<div class="experience-title">项目名 </div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
-          <div class="time">{{person.experiences[1].timeframe}} </div> <!-- THE TIME YOU WORK WITH THE COMPANY  -->
-      	</div>
-        
-         <div class="job-wrapper clearfix">
-        	<div class="experience-title">{{person.experiences[1].title}}</div> <!-- JOB TITLE  -->
-          <div class="company-description">
-          	<p>{{person.experiences[1].description}}</p>  <!-- JOB DESCRIPTION  -->
-          </div>
-        </div>
-        
-        <div class="company-wrapper clearfix">
-      		<div class="experience-title">项目名</div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
-          <div class="time">{{person.experiences[2].timeframe}}</div> <!-- THE TIME YOU WORK WITH THE COMPANY  -->
-      	</div> 
-        
-         <div class="job-wrapper clearfix">
-        	<div class="experience-title">{{person.experiences[2].title}}</div> <!-- JOB TITLE  -->
-          <div class="company-description">
-          	<p>{{person.experiences[2].description}}</p>   <!-- JOB DESCRIPTION  -->
-          </div>
-        </div>
-        
-      </div><!--Skill experience-->
-      
-      <div class="section-wrapper clearfix">
-      	<h3 class="section-title">Skills</h3>  <!-- YOUR SET OF SKILLS  -->
-        	<ul>
-        		<li class="skill-percentage">HTML / HTML5</li>
-        		<li class="skill-percentage">CSS / CSS3 / SASS / LESS</li>
-        		<li class="skill-percentage">Javascript</li>
-        		<li class="skill-percentage">Jquery</li>
-        		<li class="skill-percentage">Wordpress</li>
-        		<li class="skill-percentage">Photoshop</li>
-            
-        	</ul>
-        
-      </div>
-      
-      <div class="section-wrapper clearfix">
-        <h3 class="section-title">Hobbies</h3>  <!-- DESCRIPTION OF YOUR HOBBIES -->
-        <p>{{person.habbies}}</p>
-        
-      </div>
-      
-  	</div>
-  </section>
-  
-  <div class="clearfix"></div>
+    </div>
+    <div class="divider"></div>
+  </div>
 </div>
+<div class="contOut clearfix">
+  <div class="contIn">
+    <div class="contracts clearfix">
+      <h3>Contract Employers</h3>
+      <div class="contract">
+        <h4>Internet Marketing Bar</h4>
+        <p class="desc">User Interface (UI) design, custom WP Admin design, custom WP theme design, Dashboard & <a href="https://codepen.io/jhawes/pen/gbPrbZ" target="_blank">Email Mktg dashboard </a>design.</p><span class="date">2014</span>
+      </div>
+      <div class="contract">
+        <h4>Iron Post Media</h4>
+        <p class="desc">Custom WP theme changes & custom <a href="https://codepen.io/jhawes/pen/ujdgK" target="_blank">Google Maps polygon coordinate tool </a>used for real estate <a href="https://codepen.io/jhawes/pen/wBACp" target="_blank">drill-down navigation </a>design.</p><span class="date">2014</span>
+      </div>
+      <div class="contract">
+        <h4>California Crane School</h4>
+        <p class="desc">Various custom PHP & WP projects: <a href="http://californiacraneschool.com" target="_blank">CaliforniaCraneSchool.com</a>, <a href="http://craneaccidents.com" target="_blank">CraneAccidents.com</a>, <a href="http://cranehunter.com" target="_blank">CraneHunter.org</a>, and more to come.</p><span class="date">2011 - 2014</span>
+      </div>
+      <div class="contract">
+        <h4>SMUD</h4>
+        <p class="desc">
+           Additions & changes to various DOM elements & stylesheets within company portal.<span class="date">2010</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="contOut clearfix half">
+  <div class="contIn">
+    <div class="section middle clearfix">
+      <ul class="buttons">
+        <li><a href="http://onelittledesigner.com" target="_blank">1LittleDesigner.com</a></li>
+        <li><a href="http://rapidweaverebook.com" target="_blank">RapidWeaverEbook.com</a></li>
+        <li><a href="http://pure4rw.com" target="_blank">Pure4RW.com</a></li>
+        <li><a href="http://hashtaghawes.com" target="_blank">HashtagHawes.com</a></li>
+        <li><a href="http://papertemple.net" target="_blank">PaperTemple.net</a></li>
+        <li><a href="http://coffeetablestudios.com" target="_blank">CoffeeTableStudios.com</a></li>
+      </ul>
+    </div>
+    <div class="divider"></div>
+  </div>
+</div>
+<ul class="sm">
+  <li><a href="https://codepen.io/jhawes/"><i class="fa fa-codepen"></i></a></li>
+  <li><a href="https://twitter.com/jeremyhawes"><i class="fa fa-twitter"></i></a></li>
+  <li><a href="https://www.facebook.com/1LittleDesigner"><i class="fa fa-facebook"></i></a></li>
+  <li><a href="https://plus.google.com/+JeremyHawes/posts"><i class="fa fa-google-plus"></i></a></li>
+  <li><a href="https://www.flickr.com/photos/artbyhawes/"><i class="fa fa-flickr"></i></a></li>
+  <li><a href="http://instagram.com/haweshead/"><i class="fa fa-instagram"></i></a></li>
+  <li><a href="https://www.linkedin.com/in/jeremyhawes"><i class="fa fa-linkedin"></i></a></li>
+</ul>
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script><script  src="../static/script.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./static/script.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function cb(selection) {
+            $.getJSON({
+                url: "/callback", data: { 'data': selection }, success: function (result) {
+                    Plotly.newPlot('chart', result, {});;
+                }
+            });
+        }
+    </script>
+
+
+
+</head>
+
+<body style="font-family:arial, sans-serif">
+    <h1>深圳A股_日线可视化分析</h1>
+<!--     <h2>输入播出节目状态如：回看、未开始和直播中</h2>
+    
+    <input type="text" id="fname" name="fname" onchange="cb(this.value)"> -->
+    <div id="chart1" class="chart1"></div>
+    <div id="chart2" class="chart2"></div>
+    <div id="chart3" class="chart3"></div>
+    <div id="chart4" class="chart4"></div>
+    <div id="chart5" class="chart5"></div>
+
+</body>
+
+<script>
+    d1 = {{ graphJSON1 | safe }};
+    Plotly.newPlot('chart1', d1, {});
+    d2 = {{ graphJSON2 | safe }};
+    Plotly.newPlot('chart2', d2, {});
+    d3 = {{ graphJSON3 | safe }};
+    Plotly.newPlot('chart3', d3, {});
+    d4 = {{ graphJSON4 | safe }};
+    Plotly.newPlot('chart4', d4, {});
+    d5 = {{ graphJSON5 | safe }};
+    Plotly.newPlot('chart5', d5, {});
+
+</script>
+
+</html>

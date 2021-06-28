@@ -1,5 +1,5 @@
-# Responsive Resume Template
+# Responsive Resume
 
-A Pen created on CodePen.io. Original URL: [https://codepen.io/mariosmaselli/pen/CDcmb](https://codepen.io/mariosmaselli/pen/CDcmb).
+A Pen created on CodePen.io. Original URL: [https://codepen.io/jhawes/pen/lIijn](https://codepen.io/jhawes/pen/lIijn).
 
-Responsive resume template, you just need to fill out the content with your own. 
+Responsive Resume built in Sass
